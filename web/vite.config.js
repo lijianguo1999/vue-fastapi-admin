@@ -30,8 +30,8 @@ export default defineConfig(({ command, mode }) => {
       open: true,
       proxy: VITE_USE_PROXY
         ? {
-            [VITE_BASE_API]: PROXY_CONFIG[VITE_BASE_API],
-          }
+          [VITE_BASE_API]: PROXY_CONFIG[VITE_BASE_API],
+        }
         : undefined,
     },
     build: {
@@ -42,3 +42,12 @@ export default defineConfig(({ command, mode }) => {
     },
   }
 })
+
+// host: '0.0.0.0'：允许从任何 IP 地址访问开发服务器。
+// port: VITE_PORT：指定服务器监听的端口，通过环境变量 VITE_PORT 设置。
+// open: true：在启动开发服务器时自动打开浏览器。
+// proxy：如果 VITE_USE_PROXY 为真，则配置 API 请求的代理，VITE_BASE_API 作为代理的基础路径，代理目标从 PROXY_CONFIG 获取。
+// target: 'es2015'：指定构建的 JavaScript 目标版本，使用 ES2015 作为目标。
+// outDir: OUTPUT_DIR || 'dist'：指定构建输出的目录，如果 OUTPUT_DIR 没有定义，则默认为 dist。
+// reportCompressedSize: false：禁用显示压缩大小的报告。
+// chunkSizeWarningLimit: 1024：当 chunk 大小超过 1024KB 时，Vite 会发出警告。

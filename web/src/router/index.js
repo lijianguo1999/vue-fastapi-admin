@@ -26,7 +26,7 @@ export async function resetRouter() {
     }
   })
 }
-
+// ----------- 动态路由：实现基于权限的动态菜单和页面访问 -------------
 export async function addDynamicRoutes() {
   const token = getToken()
 
@@ -42,6 +42,9 @@ export async function addDynamicRoutes() {
   try {
     const accessRoutes = await permissionStore.generateRoutes()
     await permissionStore.getAccessApis()
+    // 逻辑与（&&）：短路运算符。
+    // 当 && 左侧条件为 true 时，才会执行右侧的代码。
+    // 当 && 左侧条件为 false 时，右侧代码不会执行。
     accessRoutes.forEach((route) => {
       !router.hasRoute(route.name) && router.addRoute(route)
     })

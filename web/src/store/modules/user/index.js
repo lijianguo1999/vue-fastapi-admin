@@ -3,7 +3,9 @@ import { resetRouter } from '@/router'
 import { useTagsStore, usePermissionStore } from '@/store'
 import { removeToken, toLogin } from '@/utils'
 import api from '@/api'
-
+// 在Pinia中，Getters是状态管理的一个重要组成部分。 它们允许你定义基于state的计算属性，
+// 类似于Vue组件中的计算属性。Getters的目的是返回一个新的结果，它们的行为与Vue的计算属性类似，
+// 且同样会被缓存。 在Pinia中，Getters是一个对象，该对象里面是各种各样的方法。
 export const useUserStore = defineStore('user', {
   state() {
     return {

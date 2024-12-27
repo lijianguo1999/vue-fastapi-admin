@@ -18,7 +18,8 @@ export function getRootPath() {
 export function getSrcPath(srcName = 'src') {
   return path.resolve(getRootPath(), srcName)
 }
-
+// 将 'true' 和 'false' 转换为布尔值。
+// 将 VITE_PORT 转换为数字。
 export function convertEnv(envOptions) {
   const result = {}
   if (!envOptions) return result
