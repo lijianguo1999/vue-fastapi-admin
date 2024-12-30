@@ -116,6 +116,34 @@ export const basicRoutes = [
       title: '登录页',
     },
   },
+  {
+    name: 'TestPage',
+    path: '/test-page',
+    component: Layout,
+    redirect: '/test-page/example',
+    meta: {
+      title: '测试页面',
+      icon: 'mdi:test-tube',
+      order: 100,
+    },
+    children: [
+      {
+        name: 'TEST-EXAMPLE',
+        path: 'example',
+        component: () => import('@/views/test-page/TestPage.vue'),
+        meta: {
+          title: '示例测试',
+          icon: 'mdi:check-circle-outline',
+        },
+      },
+    ],
+  },
+  {
+    name: 'TestExample',
+    path: '/test-example',
+    component: () => import('@/views/test-page/Example.vue'),
+    isHidden: true,
+  },
 ]
 
 export const NOT_FOUND_ROUTE = {
